@@ -4,12 +4,12 @@ import { _update } from "../../helpers/CRUD";
 import { styles } from "./style";
 
 export function SingleTask({ navigation, route }) {
-    const [newText, setNewText] = useState("");
-
     const item = route.params.item;
     const isEditable = route.params.isEditable;
     const { _title: title, _text: text, _date: date, _key: key } = item;
     const { year, month, day, hours, minutes } = date;
+
+    const [newText, setNewText] = useState(text);
 
     navigation.setOptions({ title: title.toUpperCase() })
 
