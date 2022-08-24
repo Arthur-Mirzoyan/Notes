@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { ScrollView, View, Alert, Vibration } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons';
-import { styles } from "./style";
 import { _readAll, _deleteAll } from "../../helpers/CRUD";
 import { TaskBox } from "../TaskBox/TaskBox";
+import { styles } from "./style";
 
 export function HomeScreen({ navigation }) {
     const [tasks, setTasks] = useState([]);
@@ -28,7 +28,7 @@ export function HomeScreen({ navigation }) {
                     if (tasks.length != 0) {
                         Alert.alert(
                             'Attention',
-                            'Remove all tasks ?',
+                            'Remove all notes ?',
                             [
                                 {
                                     text: "Cancel",

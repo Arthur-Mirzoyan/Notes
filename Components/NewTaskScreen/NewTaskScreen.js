@@ -14,11 +14,11 @@ export function NewTaskScreen({ navigation }) {
         _title: "",
         _text: "",
         _date: {
-            year: today.getFullYear(),
-            month: today.getMonth() + 1,
-            day: today.getDate(),
-            hours: today.getHours(),
-            minutes: today.getMinutes()
+            year: 0,
+            month: 0,
+            day: 0,
+            hours: 0,
+            minutes: 0
         }
     });
 
@@ -31,7 +31,17 @@ export function NewTaskScreen({ navigation }) {
                 style={styles.save}
                 onPress={() => {
                     if (value._text.trim() != "") {
-                        _create(value._key, value);
+                        _create(value._key,
+                            {
+                                ...value,
+                                _date: {
+                                    year: today.getFullYear(),
+                                    month: today.getMonth() + 1,
+                                    day: today.getDate(),
+                                    hours: today.getHours(),
+                                    minutes: today.getMinutes()
+                                }
+                            });
                         navigation.navigate('Home');
                     }
                 }}

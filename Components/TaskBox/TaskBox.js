@@ -18,12 +18,13 @@ export function TaskBox({ navigation, item, update }) {
         <>
             <GestureRecognizer
                 style={styles.taskBox}
-                onSwipeRight={() => onSwipeRight()}
+                onSwipeLeft={() => onSwipeLeft()}
+                onSwipeRight={() => navigation.navigate('SingleTask', { item: item, isEditable: true })}
             >
                 <Pressable
                     style={{ width: '100%' }}
                     onLongPress={() => setShowModal(!showModal)}
-                    onPress={() => navigation.navigate('SingleTask', { item: item })}
+                    onPress={() => navigation.navigate('SingleTask', { item: item, isEditable: false })}
                 >
                     <Text style={styles.title}>{title}</Text>
                     <Text style={styles.text}>{shortenText(text)}</Text>
@@ -84,7 +85,7 @@ export function TaskBox({ navigation, item, update }) {
         </>
     )
 
-    function onSwipeRight() {
+    function onSwipeLeft() {
         _delete(key);
         Vibration.vibrate();
         update();
