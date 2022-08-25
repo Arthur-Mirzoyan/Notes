@@ -27,6 +27,7 @@ export function SingleTask({ navigation, route }) {
                 <TextInput
                     style={styles.text}
                     editable={isEditable}
+                    multiline={true}
                     onChangeText={text => setNewText(text)}
                 >{text}
                 </TextInput>
